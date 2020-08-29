@@ -1,4 +1,4 @@
-package socks5
+package socks
 
 import (
 	"bufio"
@@ -6,6 +6,7 @@ import (
 	"log"
 	"net"
 	"os"
+	"time"
 
 	"golang.org/x/net/context"
 )
@@ -114,12 +115,20 @@ func (s *Server) Serve(l net.Listener) error {
 		}
 		go s.ServeConn(conn)
 	}
-	return nil
+	// unreachable code
+	//return nil
 }
 
 // ServeConn is used to serve a single connection.
 func (s *Server) ServeConn(conn net.Conn) error {
 	defer conn.Close()
+
+	//NOTE: DELAY TEST
+	//fmt.Println("IM HERE AT DELAY TEST 1")
+	fmt.Println("sleeping for 300ms")
+	time.Sleep(300 * time.Millisecond)
+	//fmt.Println("DELAY TEST 1 DONE")
+
 	bufConn := bufio.NewReader(conn)
 
 	// Read the version byte

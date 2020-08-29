@@ -1,7 +1,8 @@
-package socks5
+package socks
 
 import (
 	"fmt"
+
 	"io"
 )
 
