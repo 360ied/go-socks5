@@ -1,6 +1,7 @@
 package main
 
 import (
+	"go-socks5/keepalive"
 	"go-socks5/socks"
 )
 
@@ -19,6 +20,8 @@ func main() {
 	//	fmt.Println("  <port>              Binds to localhost and the specified port")
 	//	return
 	//}
+
+	go keepalive.KeepAlive()
 
 	var IPAddress = "127.0.0.1"
 	var Port = "6969"
